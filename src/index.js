@@ -11,7 +11,7 @@ const store = createStore(pokemonsReducer);
 
 root.render(
   <React.StrictMode>
-    <Provider state={store}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>

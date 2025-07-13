@@ -4,8 +4,6 @@ import Meta from 'antd/es/card/Meta';
 
 
 const PokemonCard = ({pokemon}) => {
-  console.log(pokemon)
-
   return (
     <Card
       title={pokemon.name}

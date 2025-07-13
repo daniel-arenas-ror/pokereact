@@ -5,7 +5,7 @@ const PokemonList = ({ pokemons }) => {
   return (
     <div className='PokemonList'>
       {pokemons.map((pokemon) => {
-        return <PokemonCard pokemon={pokemon} />
+        return <PokemonCard key={pokemon.name} pokemon={pokemon} />
       })}
     </div>
   )
