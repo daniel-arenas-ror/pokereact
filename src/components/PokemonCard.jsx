@@ -3,14 +3,16 @@ import { Card } from 'antd'
 import Meta from 'antd/es/card/Meta';
 
 
-const PokemonCard = ({pokemon}) => {
+const PokemonCard = ({ pokemon }) => {
   return (
     <Card
       title={pokemon.name}
-      cover={<img src={pokemon.url} alt={pokemon.name} />}
+      cover={<img src={pokemon.sprites.front_default} alt={pokemon.name} />}
       extra={<StarOutlined/>}
     >
-      <Meta description="F,D"></Meta>
+      {
+        pokemon.types.map(type => <Meta key={type.name} description={type.name}></Meta> )
+      }
     </Card>
   )
 }
