@@ -6,7 +6,6 @@ import { setFavorite } from '../slices/dataSlice';
 
 const PokemonCard = ({ pokemon }) => {
   const dispatch = useDispatch();
-  
   const handleClick = () => {
     dispatch(setFavorite({id: pokemon.id}));
   }
@@ -16,6 +15,7 @@ const PokemonCard = ({ pokemon }) => {
       title={pokemon.name}
       cover={<img src={pokemon.sprites.front_default} alt={pokemon.name} />}
       extra={<StarButton isFavorite={pokemon.isFavorite} onClick={handleClick} />}
+      onClick={() => window.open(`/pokemon/${pokemon.name}`, '_blank')}
     >
       {
         pokemon.types.map(type => <Badge key={type.type.name} count={type.type.name}></Badge> )
