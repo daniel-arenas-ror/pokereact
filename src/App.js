@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<PokeSearcher />} />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        <Route path="/pokemon/:name" element={<PokemonDetail />} />
       </Routes>
     </div>
   );

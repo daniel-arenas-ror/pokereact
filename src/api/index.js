@@ -11,3 +11,9 @@ export const getPokemonDetails = (pokemon) => {
   .then(res => res.data)
   .catch(err => console.log(err))
 }
+
+export const getPokemonDetailsByName = (name) => {
+  return axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+  .then(res => res.data)
+  .catch(err => console.log(err))
+}

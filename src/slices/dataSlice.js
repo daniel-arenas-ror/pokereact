@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getPokemon, getPokemonDetails } from '../api';
+import { getPokemon, getPokemonDetails, getPokemonDetailsByName } from '../api';
 import { setLoading } from "./uiSlice";
 
 const initialState = {
   pokemons: [],
+  pokemonDetails: null,
 }
 
 export const fetchPokemonWithDetails = createAsyncThunk(
@@ -16,6 +17,16 @@ export const fetchPokemonWithDetails = createAsyncThunk(
     dispatch(setLoading(false))
 });
 
+export const fetchPokemonDetailsByName = createAsyncThunk(
+  'data/fetchPokemonDetailsByName',
+  async (name, { dispatch }) => {
+    dispatch(setLoading(true));
+    const pokemonDetails = await getPokemonDetailsByName(name);
+    dispatch(setPokemonDetails(pokemonDetails));
+    dispatch(setLoading(false));
+  }
+);
+
 const dataSlice = createSlice({
   name: 'data',
   initialState,
@@ -27,8 +38,11 @@ const dataSlice = createSlice({
       const currentPokemonIndex = state.pokemons.findIndex(pokemon => pokemon.id === action.payload.id);
       state.pokemons[currentPokemonIndex].isFavorite = !state.pokemons[currentPokemonIndex].isFavorite;
     },
+    setPokemonDetails: (state, action) => {
+      state.pokemonDetails = action.payload;
+    },
   },
 });
 
-export const { setPokemons, setFavorite } = dataSlice.actions;
+export const { setPokemons, setFavorite, setPokemonDetails } = dataSlice.actions;
 export default dataSlice.reducer;
