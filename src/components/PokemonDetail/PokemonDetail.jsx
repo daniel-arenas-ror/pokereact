@@ -6,6 +6,7 @@ import { setLoading } from "../../slices/uiSlice";
 import { Layout, Col, Row, Divider, Progress, Flex, Statistic } from 'antd';
 import { Spin } from 'antd';
 import { Tag } from 'antd';
+import { Card, Space } from 'antd';
 import './style.css';
 
 const PokemonDetail = () => {
@@ -51,44 +52,60 @@ const PokemonDetail = () => {
       <h1><Divider>{pokemonDetails.name.toUpperCase()} - {pokemonDetails.id}</Divider></h1>
       <Row justify="center" align="top">
         <Col span={6} >
-          <img src={pokemonDetails.sprites.front_default} alt={pokemonDetails.name}  />
+          <Card >
+            <img src={pokemonDetails.sprites.other.showdown.front_default} alt={pokemonDetails.name}  />
+            <img src={pokemonDetails.sprites.other.showdown.back_default} alt={pokemonDetails.name}  />
+          </Card>
+
           <div className="statistics">
-            <Flex gap="small" vertical>
-              <Progress percent={30} status="active" />
-              <Progress percent={50} status="active" />
-              <Progress percent={70} status="exception" />
-              <Progress percent={100} status="active"/>
-              <Progress percent={50} status="active" />
-            </Flex>
+            <Card>
+              <Flex gap="small" vertical>
+                {
+                  pokemonDetails.stats.map(stat => {
+                    return (
+                      <div>
+                        {stat.stat.name + ': '} <Progress key={`id_stats_${stat.stat.name}`} percent={stat.base_stat} status="active" title={stat.stat.name} />
+                      </div>
+                    )
+                  })
+                }
+              </Flex>
+            </Card>
           </div>
         </Col>
         <Col span={6} >
           <div className="stats">
-            <Row gutter={16}>
-              <Col span={12}>
-                <Statistic title="Weight" value={pokemonDetails.weight} />
-              </Col>
-              <Col span={12}>
-                <Statistic title="height" value={pokemonDetails.height} />
-              </Col>
-            </Row>
+            <Card>
+              <Row gutter={16}>
+                <Col span={12}>
+                  <Statistic title="Weight" value={pokemonDetails.weight} />
+                </Col>
+                <Col span={12}>
+                  <Statistic title="height" value={pokemonDetails.height} />
+                </Col>
+              </Row>
+            </Card>
           </div>
           <div className="types">
-            <Divider orientation="left">Types</Divider>
-            <Flex gap="4px 0" wrap>
-              {
-                pokemonDetails.types.map(type => <Tag key={`id_type_${type.slot}`} className={`type_${type.type.name}`} >{type.type.name}</Tag> )
-              }
-            </Flex>
+            <Card>
+              <Divider orientation="left">Types</Divider>
+              <Flex gap="4px 0" wrap>
+                {
+                  pokemonDetails.types.map(type => <Tag key={`id_type_${type.slot}`} className={`type_${type.type.name}`} >{type.type.name}</Tag> )
+                }
+              </Flex>
+            </Card>
           </div>
           <div className="weaknesses">
-            <Divider orientation="left">Weaknesses</Divider>
-            <Flex gap="4px 0" wrap>
-              <Tag color="#f50">#f50</Tag>
-              <Tag color="#2db7f5">#2db7f5</Tag>
-              <Tag color="#87d068">#87d068</Tag>
-              <Tag color="#108ee9">#108ee9</Tag>
-            </Flex>
+            <Card>
+              <Divider orientation="left">Weaknesses</Divider>
+              <Flex gap="4px 0" wrap>
+                <Tag color="#f50">#f50</Tag>
+                <Tag color="#2db7f5">#2db7f5</Tag>
+                <Tag color="#87d068">#87d068</Tag>
+                <Tag color="#108ee9">#108ee9</Tag>
+              </Flex>
+            </Card>
           </div>
         </Col>
       </Row>
