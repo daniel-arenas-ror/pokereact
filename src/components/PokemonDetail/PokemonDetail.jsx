@@ -76,17 +76,9 @@ const PokemonDetail = () => {
           <div className="types">
             <Divider orientation="left">Types</Divider>
             <Flex gap="4px 0" wrap>
-              <Tag color="magenta">magenta</Tag>
-              <Tag color="red">red</Tag>
-              <Tag color="volcano">volcano</Tag>
-              <Tag color="orange">orange</Tag>
-              <Tag color="gold">gold</Tag>
-              <Tag color="lime">lime</Tag>
-              <Tag color="green">green</Tag>
-              <Tag color="cyan">cyan</Tag>
-              <Tag color="blue">blue</Tag>
-              <Tag color="geekblue">geekblue</Tag>
-              <Tag color="purple">purple</Tag>
+              {
+                pokemonDetails.types.map(type => <Tag key={`id_type_${type.slot}`} className={`type_${type.type.name}`} >{type.type.name}</Tag> )
+              }
             </Flex>
           </div>
           <div className="weaknesses">
