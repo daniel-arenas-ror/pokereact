@@ -3,7 +3,7 @@ import { getPokemonDetailsByName } from '../../api';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoading } from "../../slices/uiSlice";
-import { Layout, Col, Row, Divider, Progress, Flex } from 'antd';
+import { Layout, Col, Row, Divider, Progress, Flex, Statistic } from 'antd';
 import { Spin } from 'antd';
 import { Tag } from 'antd';
 import './style.css';
@@ -32,8 +32,10 @@ const PokemonDetail = () => {
           dispatch(setLoading(false));
           setPercent(0);
         }
-      }, 100);
-    }, 2000);
+      //}, 100);
+    }, 0);
+    //}, 1000);
+    }, 0);
   }, [name]);
 
   if (!pokemonDetails && !loading) {
@@ -46,7 +48,7 @@ const PokemonDetail = () => {
 
   return (
     <Layout>
-      <h1><Divider>{pokemonDetails.name}</Divider></h1>
+      <h1><Divider>{pokemonDetails.name.toUpperCase()} - {pokemonDetails.id}</Divider></h1>
       <Row justify="center" align="top">
         <Col span={6} >
           <img src={pokemonDetails.sprites.front_default} alt={pokemonDetails.name}  />
@@ -61,6 +63,16 @@ const PokemonDetail = () => {
           </div>
         </Col>
         <Col span={6} >
+          <div className="stats">
+            <Row gutter={16}>
+              <Col span={12}>
+                <Statistic title="Weight" value={pokemonDetails.weight} />
+              </Col>
+              <Col span={12}>
+                <Statistic title="height" value={pokemonDetails.height} />
+              </Col>
+            </Row>
+          </div>
           <div className="types">
             <Divider orientation="left">Types</Divider>
             <Flex gap="4px 0" wrap>
