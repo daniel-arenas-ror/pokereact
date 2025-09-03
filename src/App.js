@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router";
 import PokeSearcher from "./components/PokeSearcher";
-import PokemonDetail from "./components/PokemonDetail";
+import PokemonDetail from "./components/PokemonDetail/PokemonDetail";
 
 function App() {
 
