@@ -6,14 +6,14 @@ import { setLoading } from "../../slices/uiSlice";
 import { Layout, Col, Row, Divider, Progress, Flex, Statistic } from 'antd';
 import { Spin } from 'antd';
 import { Tag } from 'antd';
-import { Card, Space } from 'antd';
+import { Card } from 'antd';
 import './style.css';
 
 const PokemonDetail = () => {
   const { name } = useParams();
   const loading = useSelector(state => state.ui.loading);
   const dispatch = useDispatch();
-  const { Header, Footer } = Layout;
+  const { Footer } = Layout;
   const [percent, setPercent] = useState(0);
 
   const [pokemonDetails, setPokemonDetails] = useState(null);

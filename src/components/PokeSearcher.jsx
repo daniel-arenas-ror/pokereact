@@ -8,6 +8,7 @@ import { fetchPokemonWithDetails } from '../slices/dataSlice';
 
 function PokeSearcher() {
   const pokemons = useSelector(state => state.data.pokemons);
+  const searchTerm = useSelector(state => state.data.searchTerm);
   const loading = useSelector(state => state.ui.loading);
   const pokeLimit = 20;
   const [pokeOffset, setPokeOffset] = useState(0);
@@ -24,6 +25,10 @@ function PokeSearcher() {
       setPokeOffset((prevOffset) => prevOffset + pokeLimit);
     }
   }
+
+  const filteredPokemons = pokemons.filter(pokemon => 
+    pokemon.name.toLowerCase().includes(searchTerm)
+  );
   
   return (
     <div className="App" onScroll={handleScroll}>
@@ -33,7 +38,7 @@ function PokeSearcher() {
       <Col span={8} offset={8}>
         <Searcher></Searcher>
       </Col >
-      <PokemonList pokemons={pokemons} />
+      <PokemonList pokemons={filteredPokemons} />
       {
         loading ? (<Col offset={12} ><Spin spinning size="large" /> </Col>) : null
       }
