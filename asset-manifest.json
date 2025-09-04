@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pokereact/static/css/main.0e52e27b.css",
-    "main.js": "/pokereact/static/js/main.7ce866fb.js",
+    "main.js": "/pokereact/static/js/main.313b258b.js",
     "index.html": "/pokereact/index.html",
     "main.0e52e27b.css.map": "/pokereact/static/css/main.0e52e27b.css.map",
-    "main.7ce866fb.js.map": "/pokereact/static/js/main.7ce866fb.js.map"
+    "main.313b258b.js.map": "/pokereact/static/js/main.313b258b.js.map"
   },
   "entrypoints": [
     "static/css/main.0e52e27b.css",
-    "static/js/main.7ce866fb.js"
+    "static/js/main.313b258b.js"
   ]
 }
