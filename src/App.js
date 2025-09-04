@@ -12,8 +12,8 @@ function App() {
     <Layout className="app-layout">
       <Content className="app-content">
         <Routes>
-          <Route path="/" element={<PokeSearcher />} />
-          <Route path="/pokemon/:name" element={<PokemonDetail />} />
+          <Route path="/pokereact" element={<PokeSearcher />} />
+          <Route path="/pokereact/pokemon/:name" element={<PokemonDetail />} />
         </Routes>
       </Content>
       <Footer />
