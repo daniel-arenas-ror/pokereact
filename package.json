@@ -1,5 +1,6 @@
 {
-  "name": "pokedux",
+  "name": "dev-dearenas-pokedux",
+  "homepage": "https://github.com/daniel-arenas-ror/pokereact",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
