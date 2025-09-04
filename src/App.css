@@ -6,3 +6,8 @@
 .App img {
   margin: 2rem;
 }
+
+.pokemon-card-image {
+  height: 5rem;
+  object-fit: none;
+}
