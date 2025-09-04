@@ -1,6 +1,6 @@
 {
   "name": "dev-dearenas-pokedux",
-  "homepage": "https://github.com/daniel-arenas-ror/pokereact",
+  "homepage": "https://poke-dev-dearenae.github.io/pokereact",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.26.4",
     "axios": "^1.10.0",
+    "gh-pages": "^6.3.0",
     "immutable": "^4.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -27,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [
