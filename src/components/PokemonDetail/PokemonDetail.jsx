@@ -98,18 +98,16 @@ const PokemonDetail = () => {
           </div>
           <div className="weaknesses">
             <Card>
-              <Divider orientation="left">Weaknesses</Divider>
+              <Divider orientation="left">Abilities</Divider>
               <Flex gap="4px 0" wrap>
-                <Tag color="#f50">#f50</Tag>
-                <Tag color="#2db7f5">#2db7f5</Tag>
-                <Tag color="#87d068">#87d068</Tag>
-                <Tag color="#108ee9">#108ee9</Tag>
+                {
+                  pokemonDetails.abilities.map(ability => <Tag key={`id_ability_${ability.ability.name}`} >{ability.ability.name}</Tag> )
+                }
               </Flex>
             </Card>
           </div>
         </Col>
       </Row>
-      <Footer>Footer</Footer>
     </Layout>
   )
 }
