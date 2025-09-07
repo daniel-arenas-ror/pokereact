@@ -22,9 +22,9 @@ const store = createStore(
 root.render(
   <>
     <Provider store={store}>
-      <HashRouter>
+      <>
         <App />
-      </HashRouter>
+      </>
     </Provider>
   </>
 );

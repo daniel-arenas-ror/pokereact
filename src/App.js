@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, HashRouter} from "react-router";
 import { Layout } from 'antd';
 import PokeSearcher from "./components/PokeSearcher";
 import PokemonDetail from "./components/PokemonDetail/PokemonDetail";
@@ -11,10 +11,14 @@ function App() {
   return (
     <Layout className="app-layout">
       <Content className="app-content">
-        <Routes>
-          <Route path="/pokereact" element={<PokeSearcher />} />
-          <Route path="/pokereact/pokemon/:name" element={<PokemonDetail />} />
-        </Routes>
+        <HashRouter>
+          <Routes>
+          <Route path="/" element={<PokeSearcher />} />
+          <Route path="/pokemon/:name" element={<PokemonDetail />} />
+            <Route path="/pokereact" element={<PokeSearcher />} />
+            <Route path="/pokereact/pokemon/:name" element={<PokemonDetail />} />
+          </Routes>
+        </HashRouter>
       </Content>
       <Footer />
     </Layout>
