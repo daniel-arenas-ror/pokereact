@@ -7,7 +7,7 @@ import rootReducer from './reducers/rootReducer';
 import { applyMiddleware, compose, legacy_createStore as createStore } from 'redux';
 import { logger } from './middlewares';
 import { thunk } from 'redux-thunk';
-import { BrowserRouter } from "react-router";
+import { BrowserRouter, HashRouter } from "react-router";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -22,9 +22,9 @@ const store = createStore(
 root.render(
   <>
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   </>
 );
