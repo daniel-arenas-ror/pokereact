@@ -15,7 +15,7 @@ const PokemonCard = ({ pokemon }) => {
       title={pokemon.name}
       cover={<img src={pokemon.sprites.other.showdown.front_default} alt={pokemon.name} className='pokemon-card-image' />}
       extra={<StarButton isFavorite={pokemon.isFavorite} onClick={handleClick} />}
-      onClick={() => window.open(`/pokemon/${pokemon.name}`, '_blank')}
+      onClick={() => window.open(`/pokereact/pokemon/${pokemon.name}`, '_blank')}
     >
       {
         pokemon.types.map(type => <Tag key={type.type.name} className={`type_${type.type.name}`} >{type.type.name}</Tag> )
